@@ -1,4 +1,4 @@
-# Dreambox MP4 Fix – Designed by Mardo22
+# Dreambox MP4 Fix - DreamOS 4.5
 
 **Makes 4K MP4 movies playable on Dreambox Two with DreamOS 4.5.**
 
