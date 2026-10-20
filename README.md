@@ -2,6 +2,8 @@
 
 **Makes 4K MP4 movies playable on Dreambox Two with DreamOS 4.5.**
 
+**Designed by Mardo22** · YouTube: **SetTvBox4U** · Contact: settvbox4u@gmail.com
+
 MP4 files with several subtitle tracks often stall at 0:00 in the DreamOS movie player.
 Dreambox MP4 Fix copies the video and audio **bit for bit** (no re-encoding, no quality loss)
 into a verified MKV file that keeps **every audio track, every text subtitle and 5.1 sound** –
