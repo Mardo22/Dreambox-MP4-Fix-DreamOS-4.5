@@ -1,25 +1,38 @@
-# Dreambox MP4 Fix - DreamOS 4.5
+# Dreambox MP4 Fix - DreamOS 4.5 / 5
 
-**Makes 4K MP4 movies playable on Dreambox Two with DreamOS 4.5.**
+**Makes 4K MP4 movies playable on Dreambox Two with DreamOS 4.5 and DreamOS 5.**
 
 **Designed by Mardo22** · YouTube channel: **[SetTvBox4U](https://www.youtube.com/@SetTvBox4U)** · Video tutorial: **[youtu.be/DQRSgdQDlFE](https://youtu.be/DQRSgdQDlFE)** · Contact: settvbox4u@gmail.com
 
 MP4 files with several subtitle tracks often stall at 0:00 in the DreamOS movie player.
 Dreambox MP4 Fix copies the video and audio **bit for bit** (no re-encoding, no quality loss)
-into a verified MKV file that keeps **every audio track, every text subtitle and 5.1 sound** –
+into a verified MKV file that keeps **the audio tracks and text subtitles you choose, and 5.1 sound** –
 and the MKV plays normally on the Dreambox.
 
 | | |
 |---|---|
 | Receiver | Dreambox Two (`two`), ARM64 |
-| Image | DreamOS 4.5 (Gemini 4.2 / OE 2.6, Enigma2 4.5, Python 2.7.13) |
-| Package | `enigma2-plugin-extensions-dreamboxmp4fix_3.4.2_arm64.deb` |
-| Version | 3.4.2 (closed build) |
+| Image | DreamOS 4.5 and DreamOS 5 (Python 2.7) – 3.4.3 tested on Titanium AIO 20261117 (enigma2 5.0.0r2) |
+| Package | `enigma2-plugin-extensions-dreamboxmp4fix_3.4.3_arm64.deb` |
+| Version | 3.4.3 (closed build) |
 | License | Free to use, all rights reserved – see [LICENSE](LICENSE) |
 
-> This package is built **only** for Dreambox Two with DreamOS 4.5. It contains ARM64 machine
-> code for Python 2.7 and will not work on other receivers or images (DreamOS 5.0, OpenATV,
-> OpenBlackHole, …).
+> This package is built **only** for Dreambox Two with DreamOS 4.5 / DreamOS 5. It contains ARM64
+> machine code for Python 2.7 and will not work on other receivers or on open-source images
+> (OpenATV, OpenBlackHole, …).
+
+## ⚠️ LEGAL NOTICE · تنبيه قانوني ⚠️
+
+> [!CAUTION]
+> **AR:** نحن لا ندعم المشاهدة أو النسخ أو النشر غير القانوني للأفلام أو المحتوى التلفزيوني. هذه الإضافة تحوّل فقط ملفات الفيديو التي تملكها وحصلت عليها بطريقة قانونية، ولا تقوم ببث أي محتوى ولا بفك أي تشفير. هذا الدليل وجميع فيديوهاتنا لأغراض تعليمية فقط.
+>
+> **EN:** We do not support illegal viewing, copying or distribution of films or TV content. This plugin only converts video files that you own and obtained legally – it does not stream anything and does not decrypt anything. This guide and all our videos are for educational purposes only.
+>
+> **SK:** Nepodporujeme nelegálne sledovanie, kopírovanie ani šírenie filmov či televízneho obsahu. Plugin prevádza len vaše vlastné, legálne získané video súbory – nič nestreamuje a nič nedekóduje. Tento návod aj všetky naše videá slúžia len na vzdelávacie účely.
+>
+> **DE:** Wir unterstützen kein illegales Ansehen, Kopieren oder Verbreiten von Filmen oder TV-Inhalten. Dieses Plugin wandelt nur Ihre eigenen, legal erworbenen Videodateien um – es streamt nichts und entschlüsselt nichts. Diese Anleitung und alle unsere Videos dienen nur Lernzwecken.
+>
+> **GA:** Ní thacaímid le féachaint, cóipeáil ná scaipeadh mídhleathach scannán ná ábhar teilifíse. Ní thiontaíonn an breiseán seo ach comhaid físe atá agat féin agus a fuair tú go dleathach – ní shruthaíonn sé aon rud agus ní dhíchriptíonn sé aon rud. Is chun críocha oideachais amháin atá an treoir seo agus ár bhfíseáin go léir.
 
 ## Video tutorial – how to use the plugin
 
@@ -29,36 +42,48 @@ and the MKV plays normally on the Dreambox.
 
 Direct link: https://youtu.be/DQRSgdQDlFE
 
-The video shows version 3.3; version 3.4.2 is used the same way.
+The video shows version 3.3; version 3.4.3 is used the same way.
 More tutorials on the channel **[SetTvBox4U](https://www.youtube.com/@SetTvBox4U)**.
+
+## What's new in 3.4.3
+- **The Extensions list (long GREEN) no longer crashes Enigma2.** In 3.4.1 and 3.4.2 the Extensions
+  list could close the GUI on DreamOS (seen on DreamOS 5 / Titanium). The menu entries were rebuilt –
+  the list opens normally and the plugin starts from it.
+- The receiver check (`check.py`) also tests that the Extensions list can read the plugin entries.
+- Nothing else changed – conversion, design and behaviour are the same as in 3.4.2.
 
 ## Features
 - Native Dreambox look: movie list with date, codec and length, movie details card, track summary.
-- **Yellow** = Quick MKV (one key) or a 1 / 2 / 3 minute TEST file.
+- **OK** on a movie = choose the audio tracks and text subtitles, the default subtitle and the range.
+- **Yellow** = Quick MKV (one key, all tracks) or a 1 / 2 / 3 minute TEST file.
 - **Blue** = Menu: Play now, Play from the beginning, Help, Log, About, audio protection on/off.
-- All audio tracks and all text subtitles are kept (subtitles become clean SRT in the MKV);
-  the Slovak track is selected first when it exists.
-- A new MKV starts at 0:00 - with "Play now" and from the normal movie list (an old AJPanel
+- Text subtitles become clean SRT in the MKV; the Slovak track is the default when it exists.
+- The original MP4 is kept, and the MKV is checked before it appears in the movie list.
+- The conversion runs in the background – **Red** cancels the job, nothing is deleted.
+- A new MKV starts at 0:00 – with "Play now" and from the normal movie list (an old AJPanel
   resume point of a deleted file with the same name is removed).
 - "Play now" is offered 60 s after a full MKV (10 s after a TEST MKV): some hard disks,
-  especially SSDs in USB cases, pause for a moment after several GB were written.
+  especially SSDs in USB cases, keep writing for a moment after several GB.
 - Folders are read in the background – a sleeping hard disk no longer freezes the GUI.
 - **Paused audio switch protection**: on DreamOS 4.5 (GStreamer 1.10.4) choosing another
   audio track while a movie is PAUSED freezes the player. For MKVs made by the plugin the movie
   plays for about 1.5 s, the track changes and the pause returns. Can be switched off in Menu.
-- Entry in the movie list menu (MENU on a movie > Dreambox MP4 Fix).
 
 ## Installation
-1. Download `enigma2-plugin-extensions-dreamboxmp4fix_3.4.2_arm64.deb` and `SHA256SUMS.txt`
+1. Download `enigma2-plugin-extensions-dreamboxmp4fix_3.4.3_arm64.deb` and `SHA256SUMS.txt`
    from the latest **[Release](../../releases/latest)** and copy the `.deb` to `/tmp` on the
    receiver (FTP, USB stick or network share).
-2. Check the file: `sha256sum /tmp/enigma2-plugin-extensions-dreamboxmp4fix_3.4.2_arm64.deb`
-   must match `SHA256SUMS.txt`.
+2. Check the file: `sha256sum /tmp/enigma2-plugin-extensions-dreamboxmp4fix_3.4.3_arm64.deb`
+   must match `SHA256SUMS.txt`:
+   `242ae6e684f4c38cfaf8966577d5858e664224341c5ba52a8e39acb2e05fe706`
 3. On the receiver: **MENU > Setup > Software management > Install local extension >
    Internal Flash (/tmp)** > select the package > **Green = Install**.
-   Or in a terminal: `dpkg -i /tmp/enigma2-plugin-extensions-dreamboxmp4fix_3.4.2_arm64.deb`
+   Or in a terminal: `dpkg -i /tmp/enigma2-plugin-extensions-dreamboxmp4fix_3.4.3_arm64.deb`
 4. **Restart the GUI** (MENU > Standby / Restart > Restart GUI).
-5. Open **Plugins > Dreambox MP4 Fix**.
+5. Open the plugin:
+   - **MENU > Plugins > Dreambox MP4 Fix**, or
+   - hold **GREEN** in TV mode (Extensions list) > **Dreambox MP4 Fix**, or
+   - in the movie list: MENU on a movie > **Dreambox MP4 Fix**.
 
 Optional check in a terminal:
 
@@ -66,26 +91,35 @@ Optional check in a terminal:
 python /usr/lib/enigma2/python/Plugins/Extensions/DreamboxRemux/check.py
 ```
 
-The last line must be `MP4FIX_CHECK_OK version=3.4.2`. The check does not convert anything and
+The last line must be `MP4FIX_CHECK_OK version=3.4.3`. The check does not convert anything and
 does not touch Enigma2, movies or settings.
 
 ### Update from an older version
 Install the new package the same way – the old version is replaced and your movies and
-settings stay untouched.
+settings stay untouched. Users of 3.4.1 / 3.4.2 should update: it removes the Extensions list crash.
 
 ### Uninstall
 In a terminal:
 `dpkg -r enigma2-plugin-extensions-dreamboxmp4fix`. Movies and MKV files are never deleted.
 
 ## Requirements
-- `ffmpeg` (installed on DreamOS 4.5 by default, the package depends on it).
+- `ffmpeg` (installed on the receiver, the package depends on it).
 - Free space on the target disk for the new MKV (about the size of the MP4).
 
 ## What the plugin does NOT do
 - It does not re-encode video and does not change the original MP4.
+- It does not convert image subtitles (PGS, VobSub) – the plugin tells you.
 - It does not install or replace system multimedia libraries.
 - It does not delete movies. Test files and unfinished files go to `.Trash` only after you confirm.
 - It does not connect to the internet.
+
+> **Arabic subtitles on screen?** Some images (for example Titanium) include a separate live subtitle
+> translator plugin that can show a translation of the subtitle line. It is not part of
+> Dreambox MP4 Fix – the MKV contains only the original subtitle tracks.
+
+## User guides (PDF)
+Attached to the latest **[Release](../../releases/latest)**: `2026-11-21_MP4-Fix-3.4.3_User-Guide_EN.pdf`,
+`2026-11-21_MP4-Fix-3.4.3_User-Guide_AR.pdf`, `2026-11-21_MP4-Fix-3.4.3_Navod_SK.pdf`.
 
 ## Closed build
 Since 3.4.1 the plugin code is compiled to ARM64 machine code. Only three short launchers are
@@ -95,5 +129,7 @@ and `check.py` (receiver check). Decompiling or modifying the plugin is not allo
 
 ## Support
 YouTube: [SetTvBox4U](https://www.youtube.com/@SetTvBox4U) – tutorials for the plugin, [how to use Dreambox MP4 Fix](https://www.youtube.com/watch?v=DQRSgdQDlFE).
+
+Demo video in the guides: *Tears of Steel* – (CC) Blender Foundation | mango.blender.org
 
 Unofficial plugin. Dreambox and DreamOS are names of their respective owners.

@@ -1,4 +1,30 @@
-# Changelog – Dreambox MP4 Fix (Dreambox Two, DreamOS 4.5)
+# Changelog – Dreambox MP4 Fix (Dreambox Two, DreamOS 4.5 and DreamOS 5)
+
+## ⚠️ LEGAL NOTICE · تنبيه قانوني ⚠️
+
+> [!CAUTION]
+> **AR:** نحن لا ندعم المشاهدة أو النسخ أو النشر غير القانوني للأفلام أو المحتوى التلفزيوني. هذه الإضافة تحوّل فقط ملفات الفيديو التي تملكها وحصلت عليها بطريقة قانونية، ولا تقوم ببث أي محتوى ولا بفك أي تشفير. هذا الدليل وجميع فيديوهاتنا لأغراض تعليمية فقط.
+>
+> **EN:** We do not support illegal viewing, copying or distribution of films or TV content. This plugin only converts video files that you own and obtained legally – it does not stream anything and does not decrypt anything. This guide and all our videos are for educational purposes only.
+>
+> **SK:** Nepodporujeme nelegálne sledovanie, kopírovanie ani šírenie filmov či televízneho obsahu. Plugin prevádza len vaše vlastné, legálne získané video súbory – nič nestreamuje a nič nedekóduje. Tento návod aj všetky naše videá slúžia len na vzdelávacie účely.
+>
+> **DE:** Wir unterstützen kein illegales Ansehen, Kopieren oder Verbreiten von Filmen oder TV-Inhalten. Dieses Plugin wandelt nur Ihre eigenen, legal erworbenen Videodateien um – es streamt nichts und entschlüsselt nichts. Diese Anleitung und alle unsere Videos dienen nur Lernzwecken.
+>
+> **GA:** Ní thacaímid le féachaint, cóipeáil ná scaipeadh mídhleathach scannán ná ábhar teilifíse. Ní thiontaíonn an breiseán seo ach comhaid físe atá agat féin agus a fuair tú go dleathach – ní shruthaíonn sé aon rud agus ní dhíchriptíonn sé aon rud. Is chun críocha oideachais amháin atá an treoir seo agus ár bhfíseáin go léir.
+
+## 3.4.3 – 2026-11-21
+- Fixed: on DreamOS (seen on DreamOS 5 / Titanium) Enigma2 crashed when the Extensions list
+  (long GREEN) was opened. DreamOS reads the menu functions of every plugin with
+  `inspect.getargspec()`, which rejected the compiled functions of 3.4.1 / 3.4.2. Since 3.4.3
+  `plugin.py` hands Enigma2 plain Python functions; the list opens normally and the plugin
+  starts from it.
+- `check.py` also checks that the menu entries can be read this way (`MP4FIX_CHECK_OK version=3.4.3`).
+- One package for DreamOS 4.5 and DreamOS 5. Tested on Titanium AIO 20261117 (enigma2 5.0.0r2):
+  Extensions list, Plugin Browser, a 4K MP4 with 8 subtitle tracks → MKV with 5 chosen subtitles,
+  Play now in 4K.
+- About now names DreamOS 4.5 and 5. Nothing else changed – conversion, design and
+  behaviour are the same as in 3.4.2.
 
 ## 3.4.2 – 2026-10-14
 - "Play now" after a conversion is offered after 60 s (10 s after a TEST MKV). Some hard
